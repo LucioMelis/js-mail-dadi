@@ -10,27 +10,26 @@ del controllo.*/
 
 // MAIL EXERCISE 
 
-// chiedo all'utente di inserire una mail 
-const emailUser = prompt('Inserisci una mail');
 // creo un array con delle mail generiche 
 const emailList = ['luciomelis1992@gmail.com', 'giova@gmail.com', 'luffy@gmail.com', 'zoro@gmail.com'];
-let emailResult = false;
 
-for (let i = 0; i < emailList.length; i++) {
-    // se il risultato è uguale alla mail inserita dall'utente
-    if (emailList[i] === emailUser) {
-        emailResult = true;
+
+document.getElementById('btn-js').addEventListener('click', function () {
+    let emailResult = false;
+    const emailUser = document.getElementById('value').value;
+    for (let i = 0; i < emailList.length; i++) {
+        // se il risultato è uguale alla mail inserita dall'utente
+        if (emailList[i] === emailUser) {
+            emailResult = true;
+        }
     }
-}
 
-if (emailResult === true) {
-    document.getElementById('result').innerHTML = 'Email inserita correttamente';
-    document.getElementById('welcome').innerHTML = `Benvenuto ${emailUser}`;
-} else {
-    document.getElementById('result').innerHTML = 'Email non presente, Effettua il login';
-}
-
-
+    if (emailResult) {
+        document.getElementById('result').innerHTML = "Hai inserito l'email corretta";
+    } else {
+        document.getElementById('result').innerHTML = 'Email non presente, Effettua il login';
+    }
+})
 /*
 Gioco dei dadi
 
@@ -42,17 +41,24 @@ in base a chi fa il punteggio più alto.
 
 // GIOCO DEI DADI EXERCISE 
 
-// // Variabile giocatore
-const player = Math.floor((Math.random() * 6) + 1);
-// Variabile computer 
-const computer = Math.floor((Math.random() * 6) + 1);
 
-console.log(player, computer);
+document.querySelector('#btn-dice').addEventListener('click', function () {
+    const player = Math.floor((Math.random() * 6) + 1);
+    document.getElementById('player').innerHTML = `Player: ${player}`;
+    // Variabile computer 
+    const computer = Math.floor((Math.random() * 6) + 1);
+    document.getElementById('computer').innerHTML = `Computer: ${computer}`;
+    console.log(player, computer);
 
-if (player > computer) {
-    console.log('The Winner is the Player!')
-} else if (player === computer) {
-    console.log('You Tied! Try Again!')
-} else {
-    console.log('The Winner is the Computer!')
-}
+    if (player > computer) {
+        console.log('The Winner is the Player!')
+        document.getElementById('game-result').innerHTML = 'The Winner is the Player!';
+    } else if (player === computer) {
+        console.log('You Tied! Try Again!')
+        document.getElementById('game-result').innerHTML = 'You Tied! Try Again!';
+    } else {
+        console.log('The Winner is the Computer!')
+        document.getElementById('game-result').innerHTML = 'The Winner is the Computer!';
+    }
+
+})
