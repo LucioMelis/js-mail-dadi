@@ -14,22 +14,22 @@ del controllo.*/
 const emailUser = prompt('Inserisci una mail');
 // creo un array con delle mail generiche 
 const emailList = ['luciomelis1992@gmail.com', 'giova@gmail.com', 'luffy@gmail.com', 'zoro@gmail.com'];
+let emailResult = false;
 
 for (let i = 0; i < emailList.length; i++) {
     // se il risultato è uguale alla mail inserita dall'utente
     if (emailList[i] === emailUser) {
-        // allora...
-        console.log('Hai inserito una mail corretta');
-        document.getElementById('result').innerHTML = 'Email inserita correttamente';
-        document.getElementById('welcome').innerHTML = `Benvenuto ${emailList[i]}`;
-        // Altrimenti     
-    } else {
-        console.log('Email non presente, effettua il login!');
-        document.getElementById('result').innerHTML = 'Email non presente, Effettua il login';
+        emailResult = true;
     }
-
-
 }
+
+if (emailResult === true) {
+    document.getElementById('result').innerHTML = 'Email inserita correttamente';
+    document.getElementById('welcome').innerHTML = `Benvenuto ${emailUser}`;
+} else {
+    document.getElementById('result').innerHTML = 'Email non presente, Effettua il login';
+}
+
 
 /*
 Gioco dei dadi
