@@ -7,6 +7,30 @@ controlla che sia nella lista di chi può accedere,
 stampa un messaggio appropriato sull’esito
 del controllo.*/
 
+
+// MAIL EXERCISE 
+
+// chiedo all'utente di inserire una mail 
+const emailUser = prompt('Inserisci una mail');
+// creo un array con delle mail generiche 
+const emailList = ['luciomelis1992@gmail.com', 'giova@gmail.com', 'luffy@gmail.com', 'zoro@gmail.com'];
+
+for (let i = 0; i < emailList.length; i++) {
+    // se il risultato è uguale alla mail inserita dall'utente
+    if (emailList[i] === emailUser) {
+        // allora...
+        console.log('Hai inserito una mail corretta');
+        document.getElementById('result').innerHTML = 'Email inserita correttamente';
+        document.getElementById('welcome').innerHTML = `Benvenuto ${emailList[i]}`;
+        // Altrimenti     
+    } else {
+        console.log('Email non presente, effettua il login!');
+        document.getElementById('result').innerHTML = 'Email non presente, Effettua il login';
+    }
+
+
+}
+
 /*
 Gioco dei dadi
 
@@ -16,24 +40,19 @@ Stabilire il vincitore,
 in base a chi fa il punteggio più alto.
  */
 
-// MAIL EXERCISE 
-const emailUser = prompt('Inserisci una mail');
-const emailList = ['luciomelis1992@gmail.com', 'giova@gmail.com', 'luffy@gmail.com', 'zoro@gmail.com'];
-
-for (let i = 0; i < emailList.length; i++) {
-
-    if (emailList[i] === emailUser) {
-        console.log('Hai inserito una mail corretta');
-        document.getElementById('result').innerHTML = 'Email inserita correttamente';
-        document.getElementById('welcome').innerHTML = `Benvenuto ${emailList[i]}`;
-    } else {
-        console.log('Email non presente, effettua il login!');
-        document.getElementById('result').innerHTML = 'Email non presente, Effettua il login';
-    }
-
-
-}
-
 // GIOCO DEI DADI EXERCISE 
 
-const number = Math.floor((Math.random() * 6));
+// // Variabile giocatore
+const player = Math.floor((Math.random() * 6) + 1);
+// Variabile computer 
+const computer = Math.floor((Math.random() * 6) + 1);
+
+console.log(player, computer);
+
+if (player > computer) {
+    console.log('The Winner is the Player!')
+} else if (player === computer) {
+    console.log('You Tied! Try Again!')
+} else {
+    console.log('The Winner is the Computer!')
+}
