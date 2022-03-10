@@ -19,15 +19,18 @@ document.getElementById('btn-js').addEventListener('click', function () {
     const emailUser = document.getElementById('value').value;
     for (let i = 0; i < emailList.length; i++) {
         // se il risultato è uguale alla mail inserita dall'utente
-        if (emailList[i] === emailUser) {
+        if (emailList[i] === emailUser.trim().toLowerCase()) {
             emailResult = true;
         }
     }
 
+    // .trim() elimina gli eventuali spazi 
+    // .toLowerCase rende la stringa in minuscolo andando ad aiutare l'utente 
+
     if (emailResult) {
         document.getElementById('result').innerHTML = "Hai inserito l'email corretta";
     } else {
-        document.getElementById('result').innerHTML = 'Email non presente, Effettua il login';
+        document.getElementById('result').innerHTML = 'Email non presente, Riprova';
     }
 })
 /*
