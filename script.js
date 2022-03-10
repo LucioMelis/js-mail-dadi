@@ -27,7 +27,7 @@ document.getElementById('btn-js').addEventListener('click', function () {
     // .trim() elimina gli eventuali spazi 
     // .toLowerCase rende la stringa in minuscolo andando ad aiutare l'utente 
 
-    if (emailResult) {
+    if (emailResult === true) {
         document.getElementById('result').innerHTML = "Hai inserito l'email corretta";
     } else {
         document.getElementById('result').innerHTML = 'Email non presente, Riprova';
